@@ -1,6 +1,6 @@
 var q = require('q');
 
-exports.render = function(res,res,config){
+module.exports = function(req,res){
 	var deferred = q.deferred();
 
 	deferred.resolve({
