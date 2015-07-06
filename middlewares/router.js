@@ -5,13 +5,12 @@ var rootDir = path.dirname(require.main.filename);
 var router = express.Router();
 
 var apps = {
-	layout:require('../apps/layout')
+	layoutMiddleware:require('../apps/layout/middleware'),
+	baseMiddleware:require('../apps/base/middleware')
 }
 
 
-router.get('/',apps.layout(),function(req, res, next) {
-	res.send('<p>some foo foo lslsl for</p>');
-});
+router.get('/',apps.layoutMiddleware(),apps.baseMiddleware());
 
 module.exports = function(config){
 	return router;

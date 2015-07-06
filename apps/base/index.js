@@ -1,10 +1,12 @@
 var q = require('q');
 
-module.exports = function(req,res){
-	var deferred = q.deferred();
+exports.render = function(config){
+	var deferred = q.defer();
 
 	deferred.resolve({
-		html:''
+		__appname:'base',
+		__dirname:__dirname,
+		html:'<p> foo lalala </p>'
 	})
 
 	return deferred.promise;
