@@ -10,7 +10,7 @@ Web Client Boilerplate
 - Gulp for development and build processes
 
 
-# Inint
+# Init
 
 ```sh
 npm install
