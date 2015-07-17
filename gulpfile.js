@@ -90,6 +90,7 @@ gulp.task('server', function (devAPI) {
   nodemon({
     script: 'index',
     args: ['--dev'],
+    exec: './node_modules/.bin/babel-node',
     ignore:['public/**','**/*public.js','helpers/**']
   })
 });

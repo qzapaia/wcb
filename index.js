@@ -12,6 +12,8 @@ app.set('trust proxy',true);
 app.use(cookieParser());
 app.use(middlewares());
 
+
+
 if(argv.dev){
 	app.use(require('connect-livereload')());
 }else{
@@ -23,3 +25,5 @@ app.listen(port,function () {
 	console.log('running on  http://localhost:' + port);
 	console.log('\n');
 });
+
+console.log('running babel - it allows es6');
