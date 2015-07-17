@@ -22,8 +22,6 @@ if(argv.dev){
 
 app.listen(port,function () {
 	console.log('\n');
-	console.log('running on  http://localhost:' + port);
-	console.log('\n');
+	console.log('running on http://localhost:' + port);
+	console.log('running babel - it allows es6');
 });
-
-console.log('running babel - it allows es6');
