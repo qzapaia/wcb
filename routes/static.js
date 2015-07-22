@@ -9,8 +9,9 @@ var apps = {
 	baseMiddleware:require('../apps/base/middleware')
 }
 
-
 router.get('/',apps.layoutMiddleware(),apps.baseMiddleware());
+
+
 
 module.exports = function(config){
 	return router;
