@@ -11,6 +11,7 @@ var plumber = require('gulp-plumber');
 var glob = require('glob');
 var autoprefixer = require('gulp-autoprefixer');
 var watchify = require('watchify');
+var babelify = require("babelify");
 
 var plumberOption = {
     errorHandler:function(e){
@@ -30,7 +31,9 @@ gulp.task('js', function(){
         files.forEach(function(entry) {
                 var w = isBuild ? browserify({ entries: [entry] }) : watchify(browserify({ entries: [entry] }))
                 var build = function(){
-                    w.bundle()
+                    w
+                    .transform(babelify)
+                    .bundle()
                     .pipe(source(entry))
                     .pipe(gulp.dest('./public/dist/'))
                     .pipe(livereload());
