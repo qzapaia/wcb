@@ -9,16 +9,16 @@ var app = express();
 var port = process.env.PORT || 8080;
 var httpsPort = 3008;
 
-app.set('trust proxy',true);
-app.use(cookieParser());
-app.use(middlewares());
-app.use(routes());
-
 if(argv.dev){
 	app.use(require('connect-livereload')());
 }else{
 	app.use(compression());
 }
+
+app.set('trust proxy',true);
+app.use(cookieParser());
+app.use(middlewares());
+app.use(routes());
 
 app.listen(port,function () {
 	console.log('\n');

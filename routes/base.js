@@ -5,11 +5,11 @@ var rootDir = path.dirname(require.main.filename);
 var router = express.Router();
 
 var apps = {
-	layoutMiddleware:require('../apps/layout/middleware'),
-	baseMiddleware:require('../apps/base/middleware')
+	layout:require('../apps/layout'),
+	base:require('../apps/base/')
 }
 
-router.get('/',apps.layoutMiddleware(),apps.baseMiddleware());
+router.get('/',apps.layout.middleware({app:apps.base}));
 
 
 
