@@ -103,7 +103,7 @@ gulp.task('watch-templates', function() {
 })
 
 function notifyLivereload(event) {
-    var fileName = require('path').relative('/'+__dirname + '/public', event.path);
+    var fileName = '/'+require('path').relative('/'+__dirname + '/public', event.path);
     livereload.changed(fileName);
 }
 

@@ -6,7 +6,7 @@ var middlewares = require('./middlewares/');
 var routes = require('./routes/');
 
 var app = express();
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3045;
 var httpsPort = 3008;
 
 if(argv.dev){
@@ -19,6 +19,7 @@ app.set('trust proxy',true);
 app.use(cookieParser());
 app.use(middlewares());
 app.use(routes());
+app.use(express.static('public'));
 
 app.listen(port,function () {
 	console.log('\n');

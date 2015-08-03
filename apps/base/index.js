@@ -1,26 +1,25 @@
 var q = require('q');
 var readFile = require('fs-readfile-promise');
 var path = require('path');
+var mustache = require('mustache');
 
 exports.__appname = 'base';
 exports.__dirname = __dirname;
 
 exports.render = function(config){
+	var that = this;
 	var templatePath = path.resolve(__dirname,'./template.html');
 	
 	return readFile(templatePath).then(function(template){
-		
-		return template.toString();
+		var data = {
+			__appname:that.__appname
+		}
+		var response = {
+			html:mustache.render(template.toString(),data)
+		}
 
-	}).then(function(template){
-		
-		var deferred = q.defer();		
+		return response;
 
-		deferred.resolve({
-			html:template
-		})
-
-		return deferred.promise;
 	});
 }
 
